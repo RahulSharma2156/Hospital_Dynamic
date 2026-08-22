@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityCare Super Specialty Hospital | Healthcare & Staff Portal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container nav-box">
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-hospital"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="brand-name">CityCare</span>
+                    <span class="brand-sub">Super Specialty Hospital</span>
+                </div>
+            </a>
+            
+            <input type="checkbox" id="mobileNavToggle" class="mobile-nav-checkbox">
+            <label for="mobileNavToggle" class="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+
+            <nav class="nav-links">
+                <a href="#home" class="nav-item active"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#services" class="nav-item"><i class="fa-solid fa-stethoscope"></i> Services</a>
+                <a href="#doctors" class="nav-item"><i class="fa-solid fa-user-doctor"></i> Doctors</a>
+                <a href="#appointment" class="nav-item"><i class="fa-solid fa-calendar-check"></i> Book Visit</a>
+                <a href="#contact" class="nav-item"><i class="fa-solid fa-headset"></i> Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container hero-box">
+            <div class="hero-text">
+                <div class="badge-tag">
+                    <i class="fa-solid fa-shield-halved"></i> 24/7 Advanced Emergency & Clinical Excellence
+                </div>
+                <h1>Modern Healthcare For Your Entire Family</h1>
+                <p>Providing state-of-the-art medical services, specialized clinical treatments, and seamless digital patient-staff management with compassion and care.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#appointment" class="btn btn-primary btn-lg">
+                        <i class="fa-solid fa-calendar-plus"></i> Book Appointment
+                    </a>
+                    <a href="#staffModalOverlay" class="btn btn-secondary btn-lg">
+                        <i class="fa-solid fa-user-shield"></i> Staff Portal
+                    </a>
+                </div>
+
+                <!-- Stats Counter Bar -->
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Expert Doctors</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">15,000+</span>
+                        <span class="stat-label">Happy Patients</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">ICU & Emergency</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">99.2%</span>
+                        <span class="stat-label">Care Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Staff Access Card -->
+            <div class="hero-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="card-title-icon">
+                            <i class="fa-solid fa-id-badge"></i>
+                        </div>
+                        <div>
+                            <span class="card-main-title">Staff Quick Access</span>
+                            <span class="card-subtitle-inline">Doctors, Nurses & Administrative Portal</span>
+                        </div>
+                    </div>
+                    <span class="badge-green"><i class="fa-solid fa-circle status-dot"></i> Online System</span>
+                </div>
+
+                <div class="staff-card-body">
+                    <div class="staff-features-list">
+                        <span class="feature-item"><i class="fa-solid fa-shield-halved"></i> Secure Portal</span>
+                        <span class="feature-item"><i class="fa-solid fa-clock-rotate-left"></i> 24/7 Access</span>
+                    </div>
+
+                    <div class="quick-actions-btns">
+                        <a href="#staffModalOverlay" class="btn btn-primary btn-full">
+                            <i class="fa-solid fa-right-to-bracket"></i> Staff Login
+                        </a>
+                        <a href="#staffRegisterOverlay" class="btn btn-secondary btn-full">
+                            <i class="fa-solid fa-user-plus"></i> Create Account
+                        </a>
+                    </div>
+
+                    <div class="card-footer-info">
+                        <i class="fa-solid fa-lock"></i> Authorized Personnel Access Only
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medical Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">Medical Care</span>
+                <h2 class="section-title">Our Specialty Departments</h2>
+                <p class="section-subtitle">World-class treatments powered by modern medical technology and experienced specialists.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon icon-blue">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3>Cardiology & Heart Care</h3>
+                    <p>Advanced cardiac diagnostics, Angioplasty, ECG, Blood pressure management, and preventative heart care.</p>
+                    <a href="#appointment" class="card-link">Book Cardiology Visit <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon icon-purple">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3>Neurology & Brain Center</h3>
+                    <p>Expert diagnosis and therapy for neurological disorders, brain health checkups, and migraine management.</p>
+                    <a href="#appointment" class="card-link">Book Neurology Visit <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card highlight-card">
+                    <div class="service-icon icon-red">
+                        <i class="fa-solid fa-truck-medical"></i>
+                    </div>
+                    <div class="urgent-tag">24x7 Ready</div>
+                    <h3>Emergency & Trauma Unit</h3>
+                    <p>Immediate ambulance service, fully-equipped ICU units, critical care response, and emergency surgery.</p>
+                    <a href="#contact" class="card-link text-red">Emergency Call: 102 <i class="fa-solid fa-phone"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon icon-teal">
+                        <i class="fa-solid fa-baby"></i>
+                    </div>
+                    <h3>Pediatrics & Child Care</h3>
+                    <p>Comprehensive healthcare for infants and children, pediatric checkups, and vaccination schedules.</p>
+                    <a href="#appointment" class="card-link">Book Pediatrics Visit <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon icon-orange">
+                        <i class="fa-solid fa-bone"></i>
+                    </div>
+                    <h3>Orthopedics & Joint Care</h3>
+                    <p>Bone fracture management, joint replacement procedures, arthritis care, and physiotherapy support.</p>
+                    <a href="#appointment" class="card-link">Book Orthopedics Visit <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon icon-green">
+                        <i class="fa-solid fa-flask-vial"></i>
+                    </div>
+                    <h3>Diagnostic Pathology & Imaging</h3>
+                    <p>High-precision pathology lab tests, Digital X-Ray, CT Scan, Ultrasound, and instant digital reports.</p>
+                    <a href="#appointment" class="card-link">Schedule Lab Test <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Directory Section -->
+    <section class="doctors" id="doctors">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">Medical Team</span>
+                <h2 class="section-title">Meet Our Senior Specialists</h2>
+                <p class="section-subtitle">Dedicated, certified doctors committed to providing compassionate patient care.</p>
+            </div>
+
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <div class="doctor-avatar">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <span class="badge-status online"><i class="fa-solid fa-circle"></i> Available Today</span>
+                    </div>
+                    <h3>Dr. Rajesh Sharma</h3>
+                    <p class="doctor-spec">Senior Cardiologist (MD, DM)</p>
+                    <p class="doctor-exp"><i class="fa-solid fa-award"></i> 16+ Years Experience</p>
+                    <div class="doctor-meta">
+                        <span><i class="fa-solid fa-clock"></i> Mon - Sat (9 AM - 4 PM)</span>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-avatar">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <span class="badge-status online"><i class="fa-solid fa-circle"></i> Available Today</span>
+                    </div>
+                    <h3>Dr. Ananya Verma</h3>
+                    <p class="doctor-spec">Chief Neurologist (MD, DNB)</p>
+                    <p class="doctor-exp"><i class="fa-solid fa-award"></i> 14+ Years Experience</p>
+                    <div class="doctor-meta">
+                        <span><i class="fa-solid fa-clock"></i> Mon - Fri (10 AM - 5 PM)</span>
+                    </div>
+                </div>
+
+                <div class="doctor-card">
+                    <div class="doctor-avatar">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        <span class="badge-status online"><i class="fa-solid fa-circle"></i> Available Today</span>
+                    </div>
+                    <h3>Dr. Amit Kumar</h3>
+                    <p class="doctor-spec">Orthopedic Surgeon (MS Ortho)</p>
+                    <p class="doctor-exp"><i class="fa-solid fa-award"></i> 11+ Years Experience</p>
+                    <div class="doctor-meta">
+                        <span><i class="fa-solid fa-clock"></i> Tue - Sun (11 AM - 6 PM)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Booking Section -->
+    <section class="appointment" id="appointment">
+        <div class="container">
+            <div class="appointment-card">
+                <div class="appointment-header text-center">
+                    <span class="section-badge">Easy Booking</span>
+                    <h2>Book Patient Appointment</h2>
+                    <p>Schedule your OPD consultation or health checkup online instantly.</p>
+                </div>
+
+                <form id="appointmentForm" action="#" class="appointment-form">
+                    <div class="form-grid-2">
+                        <div class="input-group">
+                            <label for="patientName"><i class="fa-solid fa-user"></i> Patient Full Name</label>
+                            <input type="text" id="patientName" placeholder="Enter patient name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="patientPhone"><i class="fa-solid fa-phone"></i> Mobile Phone Number</label>
+                            <input type="tel" id="patientPhone" placeholder="Enter 10-digit phone number" required pattern="[0-9]{10}">
+                        </div>
+                    </div>
+
+                    <div class="form-grid-3">
+                        <div class="input-group">
+                            <label for="appointDept"><i class="fa-solid fa-stethoscope"></i> Department</label>
+                            <select id="appointDept" required>
+                                <option value="">Choose Department</option>
+                                <option value="Cardiology">Cardiology</option>
+                                <option value="Neurology">Neurology</option>
+                                <option value="Orthopedics">Orthopedics</option>
+                                <option value="Pediatrics">Pediatrics</option>
+                                <option value="General Medicine">General Medicine</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="appointDoctor"><i class="fa-solid fa-user-doctor"></i> Preferred Doctor</label>
+                            <select id="appointDoctor" required>
+                                <option value="">Select Doctor</option>
+                                <option value="Dr. Rajesh Sharma">Dr. Rajesh Sharma (Cardiologist)</option>
+                                <option value="Dr. Ananya Verma">Dr. Ananya Verma (Neurologist)</option>
+                                <option value="Dr. Amit Kumar">Dr. Amit Kumar (Orthopedic)</option>
+                                <option value="Any Available Specialist">Any Available Specialist</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="appointDate"><i class="fa-solid fa-calendar-day"></i> Appointment Date</label>
+                            <input type="date" id="appointDate" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="patientSymptoms"><i class="fa-solid fa-notes-medical"></i> Health Symptoms / Remarks (Optional)</label>
+                        <input type="text" id="patientSymptoms" placeholder="Briefly describe health concern (e.g. Chest discomfort, fever)">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg btn-full margin-top-10">
+                        <i class="fa-solid fa-circle-check"></i> Confirm Patient Appointment
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <footer class="footer" id="contact">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="logo footer-logo">
+                    <div class="logo-icon"><i class="fa-solid fa-hospital"></i></div>
+                    <div class="logo-text">
+                        <span class="brand-name">CityCare</span>
+                        <span class="brand-sub">Super Specialty Hospital</span>
+                    </div>
+                </div>
+                <p class="footer-desc">Providing high quality, affordable healthcare and advanced medical diagnostics for over 15 years.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fa-solid fa-chevron-right"></i> Home Page</a></li>
+                    <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> Medical Services</a></li>
+                    <li><a href="#doctors"><i class="fa-solid fa-chevron-right"></i> Specialist Doctors</a></li>
+                    <li><a href="#staffModalOverlay"><i class="fa-solid fa-chevron-right"></i> Staff Portal</a></li>
+                    <li><a href="#appointment"><i class="fa-solid fa-chevron-right"></i> Book Visit</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Hospital Location</h3>
+                <p><i class="fa-solid fa-location-dot"></i> 123 Main Medical Highway, Healthcare Zone, New Delhi</p>
+                <p><i class="fa-solid fa-phone"></i> +91 98765 43210 / 011-23456789</p>
+                <p><i class="fa-solid fa-envelope"></i> contact@citycarehospital.com</p>
+                <p><i class="fa-solid fa-clock"></i> OPD Hours: 8:00 AM - 8:00 PM</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <div class="container copyright-flex">
+                <p>&copy; 2026 CityCare Hospital. Built with Pure HTML & CSS.</p>
+                <div class="footer-sublinks">
+                    <a href="#staffModalOverlay">Staff Login</a> |
+                    <a href="#staffRegisterOverlay">Create Account</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STAFF LOGIN MODAL (Pure CSS Target) -->
+    <div class="modal-overlay" id="staffModalOverlay">
+        <div class="modal-card">
+            <a href="#" class="modal-close-btn">&times;</a>
+            
+            <div class="modal-header-tabs">
+                <a href="#staffModalOverlay" class="modal-tab-btn active">
+                    <i class="fa-solid fa-right-to-bracket"></i> Staff Login
+                </a>
+                <a href="#staffRegisterOverlay" class="modal-tab-btn">
+                    <i class="fa-solid fa-user-plus"></i> Create Account
+                </a>
+            </div>
+
+            <!-- MODAL LOGIN FORM -->
+            <div class="modal-tab-content active">
+                <h3 class="modal-title">Staff Login</h3>
+                <p class="modal-sub">Enter your Staff ID & Password to access dashboard</p>
+                
+                <form action="#staffDashboardModal">
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-id-badge"></i> Staff ID / Email</label>
+                        <input type="text" placeholder="e.g. STF-1001" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-lock"></i> Password</label>
+                        <input type="password" placeholder="Enter password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full btn-lg margin-top-15">
+                        <i class="fa-solid fa-right-to-bracket"></i> Staff Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- STAFF REGISTER MODAL (Pure CSS Target) -->
+    <div class="modal-overlay" id="staffRegisterOverlay">
+        <div class="modal-card">
+            <a href="#" class="modal-close-btn">&times;</a>
+            
+            <div class="modal-header-tabs">
+                <a href="#staffModalOverlay" class="modal-tab-btn">
+                    <i class="fa-solid fa-right-to-bracket"></i> Staff Login
+                </a>
+                <a href="#staffRegisterOverlay" class="modal-tab-btn active">
+                    <i class="fa-solid fa-user-plus"></i> Create Account
+                </a>
+            </div>
+
+            <!-- MODAL REGISTER FORM -->
+            <div class="modal-tab-content active">
+                <h3 class="modal-title">Create Account</h3>
+                <p class="modal-sub">Create a new account for hospital employees</p>
+                
+                <form action="#staffDashboardModal">
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-user"></i> Employee Full Name</label>
+                        <input type="text" placeholder="Dr. / Mr. / Ms. Name" required>
+                    </div>
+                    <div class="form-grid-2">
+                        <div class="input-group">
+                            <label><i class="fa-solid fa-id-badge"></i> Staff Code ID</label>
+                            <input type="text" placeholder="e.g. STF-2026" required>
+                        </div>
+                        <div class="input-group">
+                            <label><i class="fa-solid fa-briefcase"></i> Role</label>
+                            <select required>
+                                <option value="Doctor">Doctor</option>
+                                <option value="Nurse">Nurse</option>
+                                <option value="Administrator">Administrator</option>
+                                <option value="Lab Tech">Lab Tech</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-envelope"></i> Email</label>
+                        <input type="email" placeholder="staff@citycare.com" required>
+                    </div>
+                    <div class="form-grid-2">
+                        <div class="input-group">
+                            <label><i class="fa-solid fa-lock"></i> Password</label>
+                            <input type="password" placeholder="Min. 6 chars" required minlength="6">
+                        </div>
+                        <div class="input-group">
+                            <label><i class="fa-solid fa-lock"></i> Confirm</label>
+                            <input type="password" placeholder="Repeat pass" required minlength="6">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-secondary btn-full btn-lg margin-top-10">
+                        <i class="fa-solid fa-user-check"></i> Create Account
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGGED IN STAFF DASHBOARD MODAL (Pure CSS Target) -->
+    <div class="modal-overlay" id="staffDashboardModal">
+        <div class="modal-card dashboard-card">
+            <a href="#" class="modal-close-btn">&times;</a>
+            <div class="dashboard-header">
+                <div class="staff-profile-badge">
+                    <div class="avatar-circle"><i class="fa-solid fa-user-doctor"></i></div>
+                    <div>
+                        <h3>Dr. Rajesh Sharma</h3>
+                        <span class="badge-role">Senior Specialist</span>
+                        <span class="badge-dept">Cardiology</span>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-danger-outline btn-sm">
+                    <i class="fa-solid fa-right-from-bracket"></i> Close Dashboard
+                </a>
+            </div>
+
+            <div class="dashboard-body">
+                <div class="dash-stats-grid">
+                    <div class="dash-stat">
+                        <i class="fa-solid fa-calendar-check icon-blue"></i>
+                        <div>
+                            <h4>12</h4>
+                            <span>Today's Appointments</span>
+                        </div>
+                    </div>
+                    <div class="dash-stat">
+                        <i class="fa-solid fa-id-badge icon-green"></i>
+                        <div>
+                            <h4>STF-1001</h4>
+                            <span>Staff Account ID</span>
+                        </div>
+                    </div>
+                    <div class="dash-stat">
+                        <i class="fa-solid fa-circle-check icon-purple"></i>
+                        <div>
+                            <h4>Active</h4>
+                            <span>System Status</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dash-section-title">
+                    <i class="fa-solid fa-list-check"></i> Patient Appointment Queue
+                </div>
+
+                <div class="dash-table-wrapper">
+                    <table class="dash-table">
+                        <thead>
+                            <tr>
+                                <th>Patient Name</th>
+                                <th>Phone</th>
+                                <th>Department</th>
+                                <th>Doctor</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ramesh Gupta</td>
+                                <td>9876543210</td>
+                                <td>Cardiology</td>
+                                <td>Dr. Rajesh Sharma</td>
+                                <td>2026-08-20</td>
+                                <td><span class="badge-status online">Confirmed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Priya Verma</td>
+                                <td>9812345678</td>
+                                <td>Neurology</td>
+                                <td>Dr. Ananya Verma</td>
+                                <td>2026-08-21</td>
+                                <td><span class="badge-status online">Confirmed</span></td>
+                            </tr>
+                            <tr>
+                                <td>Vikas Singh</td>
+                                <td>9988776655</td>
+                                <td>Orthopedics</td>
+                                <td>Dr. Amit Kumar</td>
+                                <td>2026-08-21</td>
+                                <td><span class="badge-status online">Confirmed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
