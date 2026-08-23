@@ -184,7 +184,7 @@
             if ("registered".equals(msg)) { 
         %>
             <div class="alert-success">
-                <i class="fa-solid fa-circle-check"></i> Account created successfully! Use ID: <strong><%= (code != null ? code : "") %></strong> to login.
+                <i class="fa-solid fa-circle-check"></i> Staff account is ready. Use ID: <strong><%= (code != null ? code : "") %></strong> to login.
             </div>
         <% } else if ("logout".equals(msg)) { %>
             <div class="alert-success">
@@ -199,6 +199,10 @@
         <% } else if ("dberror".equals(error)) { %>
             <div class="alert-error">
                 <i class="fa-solid fa-triangle-exclamation"></i> Database connection failed. Please check MySQL.
+            </div>
+        <% } else if ("registration_disabled".equals(error)) { %>
+            <div class="alert-error">
+                <i class="fa-solid fa-user-shield"></i> Account creation is disabled. Please use your assigned staff credentials.
             </div>
         <% } %>
 
@@ -220,7 +224,7 @@
         </form>
 
         <div class="auth-links">
-            Don't have an account? <a href="register.jsp" style="color: var(--secondary); font-weight: 700;">Create Account</a> | <a href="index.jsp" style="color: var(--primary); font-weight: 600;">Home</a>
+            Authorized staff only | <a href="index.jsp" style="color: var(--primary); font-weight: 600;">Home</a>
         </div>
     </div>
 

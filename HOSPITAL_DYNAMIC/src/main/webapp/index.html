@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="http://localhost:8081/HOSPITAL_DYNAMIC/">
     <title>CityCare Super Specialty Hospital | Healthcare & Staff Portal</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +39,9 @@
                 <a href="#services" class="nav-item"><i class="fa-solid fa-stethoscope"></i> Services</a>
                 <a href="#doctors" class="nav-item"><i class="fa-solid fa-user-doctor"></i> Doctors</a>
                 <a href="#appointment" class="nav-item"><i class="fa-solid fa-calendar-check"></i> Book Visit</a>
+                <a href="index.jsp#track" class="nav-item"><i class="fa-solid fa-magnifying-glass"></i> Track Status</a>
                 <a href="#contact" class="nav-item"><i class="fa-solid fa-headset"></i> Contact</a>
+                <a href="login.jsp" class="nav-item" style="color: var(--primary);"><i class="fa-solid fa-user-shield"></i> Staff Login</a>
             </nav>
         </div>
     </header>
@@ -61,7 +64,7 @@
                     <a href="#appointment" class="btn btn-primary btn-lg">
                         <i class="fa-solid fa-calendar-plus"></i> Book Appointment
                     </a>
-                    <a href="#staffModalOverlay" class="btn btn-secondary btn-lg">
+                    <a href="login.jsp" class="btn btn-secondary btn-lg">
                         <i class="fa-solid fa-user-shield"></i> Staff Portal
                     </a>
                 </div>
@@ -112,11 +115,8 @@
                     </div>
 
                     <div class="quick-actions-btns">
-                        <a href="#staffModalOverlay" class="btn btn-primary btn-full">
+                        <a href="login.jsp" class="btn btn-primary btn-full">
                             <i class="fa-solid fa-right-to-bracket"></i> Staff Login
-                        </a>
-                        <a href="#staffRegisterOverlay" class="btn btn-secondary btn-full">
-                            <i class="fa-solid fa-user-plus"></i> Create Account
                         </a>
                     </div>
 
@@ -258,49 +258,49 @@
                     <p>Schedule your OPD consultation or health checkup online instantly.</p>
                 </div>
 
-                <form id="appointmentForm" action="#" class="appointment-form">
+                <form id="appointmentForm" action="Appointment_Servlet" method="POST" class="appointment-form">
                     <div class="form-grid-2">
                         <div class="input-group">
                             <label for="patientName"><i class="fa-solid fa-user"></i> Patient Full Name</label>
-                            <input type="text" id="patientName" placeholder="Enter patient name" required>
+                            <input type="text" id="patientName" name="patient_name" placeholder="Enter patient name" required>
                         </div>
                         <div class="input-group">
                             <label for="patientPhone"><i class="fa-solid fa-phone"></i> Mobile Phone Number</label>
-                            <input type="tel" id="patientPhone" placeholder="Enter 10-digit phone number" required pattern="[0-9]{10}">
+                            <input type="tel" id="patientPhone" name="patient_phone" placeholder="Enter 10-digit phone number" required pattern="[0-9]{10}">
                         </div>
                     </div>
 
                     <div class="form-grid-3">
                         <div class="input-group">
                             <label for="appointDept"><i class="fa-solid fa-stethoscope"></i> Department</label>
-                            <select id="appointDept" required>
+                            <select id="appointDept" name="department_id" required>
                                 <option value="">Choose Department</option>
-                                <option value="Cardiology">Cardiology</option>
-                                <option value="Neurology">Neurology</option>
-                                <option value="Orthopedics">Orthopedics</option>
-                                <option value="Pediatrics">Pediatrics</option>
-                                <option value="General Medicine">General Medicine</option>
+                                <option value="1">Cardiology</option>
+                                <option value="2">Neurology</option>
+                                <option value="3">Orthopedics</option>
+                                <option value="4">Pediatrics</option>
+                                <option value="7">General Medicine</option>
                             </select>
                         </div>
                         <div class="input-group">
                             <label for="appointDoctor"><i class="fa-solid fa-user-doctor"></i> Preferred Doctor</label>
-                            <select id="appointDoctor" required>
+                            <select id="appointDoctor" name="doctor_id" required>
                                 <option value="">Select Doctor</option>
-                                <option value="Dr. Rajesh Sharma">Dr. Rajesh Sharma (Cardiologist)</option>
-                                <option value="Dr. Ananya Verma">Dr. Ananya Verma (Neurologist)</option>
-                                <option value="Dr. Amit Kumar">Dr. Amit Kumar (Orthopedic)</option>
-                                <option value="Any Available Specialist">Any Available Specialist</option>
+                                <option value="1">Dr. Rajesh Sharma (Cardiologist)</option>
+                                <option value="2">Dr. Ananya Verma (Neurologist)</option>
+                                <option value="3">Dr. Amit Kumar (Orthopedic)</option>
+                                <option value="">Any Available Specialist</option>
                             </select>
                         </div>
                         <div class="input-group">
                             <label for="appointDate"><i class="fa-solid fa-calendar-day"></i> Appointment Date</label>
-                            <input type="date" id="appointDate" required>
+                            <input type="date" id="appointDate" name="appointment_date" required>
                         </div>
                     </div>
 
                     <div class="input-group">
                         <label for="patientSymptoms"><i class="fa-solid fa-notes-medical"></i> Health Symptoms / Remarks (Optional)</label>
-                        <input type="text" id="patientSymptoms" placeholder="Briefly describe health concern (e.g. Chest discomfort, fever)">
+                        <input type="text" id="patientSymptoms" name="symptoms" placeholder="Briefly describe health concern (e.g. Chest discomfort, fever)">
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-lg btn-full margin-top-10">
@@ -331,8 +331,9 @@
                     <li><a href="#home"><i class="fa-solid fa-chevron-right"></i> Home Page</a></li>
                     <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> Medical Services</a></li>
                     <li><a href="#doctors"><i class="fa-solid fa-chevron-right"></i> Specialist Doctors</a></li>
-                    <li><a href="#staffModalOverlay"><i class="fa-solid fa-chevron-right"></i> Staff Portal</a></li>
+                    <li><a href="login.jsp"><i class="fa-solid fa-chevron-right"></i> Staff Login</a></li>
                     <li><a href="#appointment"><i class="fa-solid fa-chevron-right"></i> Book Visit</a></li>
+                    <li><a href="index.jsp#track"><i class="fa-solid fa-chevron-right"></i> Track Appointment</a></li>
                 </ul>
             </div>
 
@@ -349,8 +350,7 @@
             <div class="container copyright-flex">
                 <p>&copy; 2026 CityCare Hospital. Built with Pure HTML & CSS.</p>
                 <div class="footer-sublinks">
-                    <a href="#staffModalOverlay">Staff Login</a> |
-                    <a href="#staffRegisterOverlay">Create Account</a>
+                    <a href="login.jsp">Staff Login</a>
                 </div>
             </div>
         </div>
@@ -364,9 +364,6 @@
             <div class="modal-header-tabs">
                 <a href="#staffModalOverlay" class="modal-tab-btn active">
                     <i class="fa-solid fa-right-to-bracket"></i> Staff Login
-                </a>
-                <a href="#staffRegisterOverlay" class="modal-tab-btn">
-                    <i class="fa-solid fa-user-plus"></i> Create Account
                 </a>
             </div>
 
@@ -386,67 +383,6 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-full btn-lg margin-top-15">
                         <i class="fa-solid fa-right-to-bracket"></i> Staff Login
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- STAFF REGISTER MODAL (Pure CSS Target) -->
-    <div class="modal-overlay" id="staffRegisterOverlay">
-        <div class="modal-card">
-            <a href="#" class="modal-close-btn">&times;</a>
-            
-            <div class="modal-header-tabs">
-                <a href="#staffModalOverlay" class="modal-tab-btn">
-                    <i class="fa-solid fa-right-to-bracket"></i> Staff Login
-                </a>
-                <a href="#staffRegisterOverlay" class="modal-tab-btn active">
-                    <i class="fa-solid fa-user-plus"></i> Create Account
-                </a>
-            </div>
-
-            <!-- MODAL REGISTER FORM -->
-            <div class="modal-tab-content active">
-                <h3 class="modal-title">Create Account</h3>
-                <p class="modal-sub">Create a new account for hospital employees</p>
-                
-                <form action="#staffDashboardModal">
-                    <div class="input-group">
-                        <label><i class="fa-solid fa-user"></i> Employee Full Name</label>
-                        <input type="text" placeholder="Dr. / Mr. / Ms. Name" required>
-                    </div>
-                    <div class="form-grid-2">
-                        <div class="input-group">
-                            <label><i class="fa-solid fa-id-badge"></i> Staff Code ID</label>
-                            <input type="text" placeholder="e.g. STF-2026" required>
-                        </div>
-                        <div class="input-group">
-                            <label><i class="fa-solid fa-briefcase"></i> Role</label>
-                            <select required>
-                                <option value="Doctor">Doctor</option>
-                                <option value="Nurse">Nurse</option>
-                                <option value="Administrator">Administrator</option>
-                                <option value="Lab Tech">Lab Tech</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label><i class="fa-solid fa-envelope"></i> Email</label>
-                        <input type="email" placeholder="staff@citycare.com" required>
-                    </div>
-                    <div class="form-grid-2">
-                        <div class="input-group">
-                            <label><i class="fa-solid fa-lock"></i> Password</label>
-                            <input type="password" placeholder="Min. 6 chars" required minlength="6">
-                        </div>
-                        <div class="input-group">
-                            <label><i class="fa-solid fa-lock"></i> Confirm</label>
-                            <input type="password" placeholder="Repeat pass" required minlength="6">
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-secondary btn-full btn-lg margin-top-10">
-                        <i class="fa-solid fa-user-check"></i> Create Account
                     </button>
                 </form>
             </div>

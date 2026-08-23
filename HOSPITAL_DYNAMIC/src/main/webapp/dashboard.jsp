@@ -376,6 +376,8 @@
                 <i class="fa-solid fa-user-doctor"></i> <%= userName %> 
                 <span class="role-badge"><%= userRole %> (<%= staffCode %>)</span>
             </div>
+            <a href="index.jsp#appointment" class="btn-view-site"><i class="fa-solid fa-calendar-plus"></i> Book Appointment</a>
+            <a href="index.jsp#track" class="btn-view-site"><i class="fa-solid fa-magnifying-glass"></i> Track Status</a>
             <a href="index.jsp" class="btn-view-site" target="_blank"><i class="fa-solid fa-globe"></i> View Website</a>
             <a href="Logout_Servlet" class="btn-logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
         </div>
@@ -497,6 +499,7 @@
                             <th>Department</th>
                             <th>Assigned Doctor</th>
                             <th>Date</th>
+                            <th>Remarks</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -504,7 +507,7 @@
                         <%
                             try (Connection conn = DBConnection.getConnection()) {
                                 if (conn != null) {
-                                    String sql = "SELECT a.id, a.appointment_no, a.patient_name, a.patient_phone, a.appointment_date, a.status, " +
+                                    String sql = "SELECT a.id, a.appointment_no, a.patient_name, a.patient_phone, a.appointment_date, a.symptoms_remarks, a.status, " +
                                                  "d.name AS dept_name, doc.name AS doctor_name " +
                                                  "FROM appointments a " +
                                                  "LEFT JOIN departments d ON a.department_id = d.id " +
@@ -525,6 +528,7 @@
                                         String dept = rs.getString("dept_name") != null ? rs.getString("dept_name") : "General";
                                         String doc = rs.getString("doctor_name") != null ? rs.getString("doctor_name") : "On-Duty";
                                         String date = rs.getString("appointment_date");
+                                        String remarks = rs.getString("symptoms_remarks");
                                         String status = rs.getString("status");
                         %>
                             <tr class="appt-row">
@@ -538,6 +542,7 @@
                                 <td><%= dept %></td>
                                 <td><%= doc %></td>
                                 <td style="color:#dc2626; font-weight:600;"><%= date %></td>
+                                <td title="<%= remarks != null ? remarks : "No remarks" %>"><%= remarks != null && !remarks.trim().isEmpty() ? remarks : "-" %></td>
                                 <td>
                                     <span class="badge-status <%= "Confirmed".equalsIgnoreCase(status) ? "badge-confirmed" : "badge-pending" %>">
                                         <%= status %>
@@ -549,7 +554,7 @@
                                     if (!hasData) {
                         %>
                             <tr>
-                                <td colspan="9" style="text-align:center; padding:30px; color:var(--dark-muted);"><i class="fa-solid fa-calendar-xmark" style="margin-right:8px;"></i>No appointments found in database.</td>
+                                <td colspan="10" style="text-align:center; padding:30px; color:var(--dark-muted);"><i class="fa-solid fa-calendar-xmark" style="margin-right:8px;"></i>No appointments found in database.</td>
                             </tr>
                         <%
                                     }
@@ -557,7 +562,7 @@
                             } catch(Exception e) {
                         %>
                             <tr>
-                                <td colspan="9" style="color:red; text-align:center;">Error loading queue: <%= e.getMessage() %></td>
+                                <td colspan="10" style="color:red; text-align:center;">Error loading queue: <%= e.getMessage() %></td>
                             </tr>
                         <% } %>
                     </tbody>
