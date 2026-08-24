@@ -12,10 +12,16 @@ import java.util.Scanner;
  * ============================================================================
  * CityCare Hospital Management System - Java JDBC Console Application
  * Database: MySQL (hospital_db)
+ *
  * Features:
- * Connection Setup + Full CRUD
- * Insert, Search, Read, Update, Delete
- * Appointment Insert + Read
+ * 1. Add New Staff Member
+ * 2. View All Staff Members
+ * 3. Search Staff Member
+ * 4. Update Staff Details
+ * 5. Delete Staff Member
+ * 6. Book Patient Appointment
+ * 7. View All Appointments
+ * 8. Exit
  * ============================================================================
  */
 public class HospitalJDBCApp {
@@ -32,10 +38,7 @@ public class HospitalJDBCApp {
 
     private static final String DB_USER = "root";
 
-    // IMPORTANT:
-    // Agar tumhare MySQL ka password root nahi hai,
-    // to "root" ko apne actual MySQL password se replace karo.
-    private static final String DB_PASS = "root";
+    private static final String DB_PASS = "Rahul@123";
 
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -46,16 +49,18 @@ public class HospitalJDBCApp {
     public static void main(String[] args) {
 
         System.out.println("==========================================================");
-        System.out.println("       WELCOME TO CITYCARE HOSPITAL");
-        System.out.println("          JDBC CONSOLE APPLICATION");
+        System.out.println("          WELCOME TO CITYCARE HOSPITAL");
+        System.out.println("             JDBC CONSOLE APPLICATION");
         System.out.println("==========================================================");
 
         // Test database connection
         try (Connection conn = getConnection()) {
 
             if (conn != null) {
+
                 System.out.println(
-                    "SUCCESS: Connected to MySQL Database (hospital_db) successfully!"
+                    "SUCCESS: Connected to MySQL Database "
+                    + "(hospital_db) successfully!"
                 );
             }
 
@@ -70,7 +75,7 @@ public class HospitalJDBCApp {
             );
 
             System.err.println(
-                "Also check MySQL username, password and Connector/J."
+                "Check MySQL username, password and Connector/J."
             );
 
             System.err.println(
@@ -86,7 +91,8 @@ public class HospitalJDBCApp {
 
         while (true) {
 
-            System.out.println("\n----------------- MAIN MENU -----------------");
+            System.out.println();
+            System.out.println("----------------- MAIN MENU -----------------");
 
             System.out.println("1. Add New Staff Member");
             System.out.println("2. View All Staff Members");
@@ -147,15 +153,16 @@ public class HospitalJDBCApp {
                     break;
 
                 case 8:
+
                     System.out.println(
                         "Exiting Application. Thank you!"
                     );
 
                     scanner.close();
-                    System.exit(0);
-                    break;
+                    return;
 
                 default:
+
                     System.out.println(
                         "Invalid choice! Please choose from 1 to 8."
                     );
@@ -178,12 +185,10 @@ public class HospitalJDBCApp {
 
         } catch (ClassNotFoundException e) {
 
-            System.err.println(
-                "JDBC Driver not found!"
-            );
-
-            System.err.println(
-                "Add MySQL Connector/J to Java Build Path."
+            throw new SQLException(
+                "MySQL JDBC Driver not found. "
+                + "Add MySQL Connector/J to the project.",
+                e
             );
         }
 
@@ -265,6 +270,12 @@ public class HospitalJDBCApp {
                     "SUCCESS: Staff Member '"
                     + fullName
                     + "' inserted successfully!"
+                );
+
+            } else {
+
+                System.out.println(
+                    "FAILED: Staff member was not inserted."
                 );
             }
 
@@ -711,6 +722,12 @@ public class HospitalJDBCApp {
                     + apptNo
                     + "' booked successfully!"
                 );
+
+            } else {
+
+                System.out.println(
+                    "FAILED: Appointment was not booked."
+                );
             }
 
         } catch (SQLException e) {
@@ -737,7 +754,6 @@ public class HospitalJDBCApp {
             + "a.patient_name, "
             + "a.patient_phone, "
             + "d.name AS dept_name, "
-            + "a.appointment_date, "
             + "a.status "
             + "FROM appointments a "
             + "JOIN departments d "
@@ -761,4 +777,39 @@ public class HospitalJDBCApp {
             );
 
             System.out.println(
-                "--------------------------------------------------------------------------------
+                "----------------------------------------------------------------------------------------------------"
+            );
+
+            boolean found = false;
+
+            while (rs.next()) {
+
+                found = true;
+
+                System.out.printf(
+                    "%-15s | %-20s | %-12s | %-24s | %-12s | %-10s%n",
+                    rs.getString("appointment_no"),
+                    rs.getString("patient_name"),
+                    rs.getString("patient_phone"),
+                    rs.getString("dept_name"),
+                    rs.getDate("appointment_date"),
+                    rs.getString("status")
+                );
+            }
+
+            if (!found) {
+
+                System.out.println(
+                    "No appointment records found in database."
+                );
+            }
+
+        } catch (SQLException e) {
+
+            System.err.println(
+                "Error fetching appointment records: "
+                + e.getMessage()
+            );
+        }
+    }
+}
