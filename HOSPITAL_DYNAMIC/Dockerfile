@@ -10,7 +10,7 @@ RUN mkdir -p /usr/local/tomcat/webapps/ROOT/WEB-INF/classes \
 RUN curl -L -o /usr/local/tomcat/webapps/ROOT/WEB-INF/lib/mysql-connector-j.jar \
     https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/9.4.0/mysql-connector-j-9.4.0.jar
 
-COPY src/main/java/ /tmp/java/
+COPY HOSPITAL_DYNAMIC/src/main/java/ /tmp/java/
 
 RUN javac \
     -cp "/usr/local/tomcat/lib/servlet-api.jar:/usr/local/tomcat/webapps/ROOT/WEB-INF/lib/mysql-connector-j.jar" \
